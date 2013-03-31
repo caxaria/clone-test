@@ -61,13 +61,13 @@ namespace Webpage.Controllers
         // POST: /Clients/Create
 
         [HttpPost]
-        public ActionResult Create(Client client)
+        public ActionResult CreateAndGoHome(Client client)
         {
             if (ModelState.IsValid)
             {
                 _clientRepository.InsertOrUpdate(client);
                 _clientRepository.Save();
-                return RedirectToAction("Index");
+                return RedirectToAction("Home");
             }
             return View();
         }
