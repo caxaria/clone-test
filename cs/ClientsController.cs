@@ -66,7 +66,7 @@ namespace Webpage.Controllers
             if (ModelState.IsValid)
             {
                 _clientRepository.InsertOrUpdate(client);
-                _clientRepository.Save();
+                _clientRepository.SafeSave();
                 return RedirectToAction("Home");
             }
             return View();
