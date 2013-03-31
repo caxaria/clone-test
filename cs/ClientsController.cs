@@ -58,6 +58,22 @@ namespace Webpage.Controllers
         }
 
         //
+        // POST: /Clients/Create
+
+        [HttpPost]
+        public ActionResult Create(Client client)
+        {
+            if (ModelState.IsValid)
+            {
+                _clientRepository.InsertOrUpdate(client);
+                _clientRepository.Save();
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
+
+        //
         // GET: /Clients/Edit/5
 
         public ActionResult Edit(int id)
